@@ -16,7 +16,7 @@ const getMostFrequent = (arr) => {
   return Object.keys(hashmap).reduce((a,b) => hashmap[a] > hashmap[b] ? a : b)
 }
 
-const getLessFrequent = (arr) => {
+const getLeastFrequent = (arr) => {
   const hashmap = arr.reduce((acc, val) => {
     acc[val] = (acc[val] || 0) + 1
     return acc
@@ -34,7 +34,7 @@ for (let i = 0; i < inputValues[0].length; i++) {
 }
 
 let gammaRate = matrix.map(arr => getMostFrequent(arr)).join('')
-let epsilonRate = matrix.map(arr => getLessFrequent(arr)).join('')
+let epsilonRate = matrix.map(arr => getLeastFrequent(arr)).join('')
 
 const result = parseInt(gammaRate, 2) * parseInt(epsilonRate, 2)
 
